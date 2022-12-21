@@ -29,10 +29,15 @@ class LinkedList {
   // Adds the element at a specific location
   insertAt(element, index) {
     if (index < 0 || index > this.size) {
-      return "please enter a valid index";
+      console.log("please enter a valid index");
     } else if (this.size === 0) {
       this.add(element);
-    } else {
+    } else if(index == 0){
+      let n = new Node(element);
+      n.next = this.head;
+      this.head = n;
+      this.size++;
+    }else {
       let current,
       count = 1;
       let n = new Node(element);
@@ -49,7 +54,7 @@ class LinkedList {
   // Removes element from a specific index
   RemoveFrom(index) {
     if (index < 0 || index > this.size) {
-      return "please enter a valid index";
+      console.log("please enter a valid index");
     } else {
       let count = 0;
       let prev;
@@ -99,7 +104,7 @@ class LinkedList {
     if (current.element === element) {
       return count;
     } else {
-      return "element not found";
+      console.log("element not found");
     }
   }
   // Returns if the list is empty
