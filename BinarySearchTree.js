@@ -34,15 +34,15 @@ class Tree {
   }
   #print(current, str) {
     if (current) {
-      str.el = str.el + current.element + " -> ";
       this.#print(current.left, str);
+      str.el = str.el + current.element + "  ";
       this.#print(current.right, str);
     }
   }
   printTree() {
     let str = { el: "" };
     this.#print(this.root, str);
-    console.log(str);
+    console.log(str.el);
   }
 }
 
